@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      input,
+      button {
+        font-size: 16px;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        background-color: #4b4a4a;
+        color: white;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Login to Chat</h1>
+    <input type="text" id="username" placeholder="Enter your username" />
+    <button id="login-button">Login</button>
+
+    <script>
+      const loginButton = document.getElementById("login-button");
+      loginButton.addEventListener("click", () => {
+        const username = document.getElementById("username").value.trim();
+        if (username) {
+          // Save the username in localStorage
+          localStorage.setItem("username", username);
+          // Redirect to the chat page
+          window.location.href = "chat.html";
+        } else {
+          alert("Please enter a valid username.");
+        }
+      });
+    </script>
+  </body>
+</html>
